@@ -4,97 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cerca in Olalla</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-        }
-        .search-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-        }
-        input[type="button"] {
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #2289CD;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        input[type="button"]:hover {
-            background-color: #339ce1;
-        }
-        input[type="submit"] {
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #2289CD;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        input[type="submit"]:hover {
-            background-color: #339ce1;
-        }
-        #results {
-            margin-top: 20px;
-        }
-
-    </style>
-
-                <!-- For old IEs -->
-                <link rel="shortcut icon" href="favicon.ico" />
-                
-                <!-- For new browsers - multisize ico  -->
-                <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="favicon.ico">
-                
-                <!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
-                <link rel="apple-touch-icon" sizes="152x152" href="favicon-152-precomposed.png">
-                
-                <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
-                <link rel="apple-touch-icon" sizes="144x144" href="favicon-144-precomposed.png">
-                
-                <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
-                <link rel="apple-touch-icon" sizes="120x120" href="favicon-120-precomposed.png">
-                
-                <!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
-                <link rel="apple-touch-icon" sizes="114x114" href="favicon-114-precomposed.png">
-                
-                <!-- For iPhone 6+ -->
-                <link rel="apple-touch-icon" sizes="180x180" href="favicon-180-precomposed.png">
-                
-                <!-- For first- and second-generation iPad: -->
-                <link rel="apple-touch-icon" sizes="72x72" href="favicon-72-precomposed.png">
-                
-                <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-                <link rel="apple-touch-icon" sizes="57x57" href="favicon-57.png">
-                
-                <!-- For Old Chrome -->
-                <link rel="icon" sizes="32x32" href="favicon-32.png" >
-                
-                <!-- For IE10 Metro -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="compendium.css">
+                <link rel="shortcut icon" href="/img/favicon.ico" />
+                <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/img/favicon.ico">
+                <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon-152-precomposed.png">
+                <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon-144-precomposed.png">
+                <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon-120-precomposed.png">
+                <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon-114-precomposed.png">
+                <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon-180-precomposed.png">
+                <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon-72-precomposed.png">
+                <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon-57.png">
+                <link rel="icon" sizes="32x32" href="/img/favicon-32.png" >
                 <meta name="msapplication-TileColor" content="#FFFFFF">
-                <meta name="msapplication-TileImage" content="favicon-144.png">
+                <meta name="msapplication-TileImage" content="/img/favicon-144.png">
                 <meta name="theme-color" content="#ffffff">
-                
-                <!-- Chrome for Android -->
                 <link rel="manifest" href="manifest.json">
-                <link rel="icon" sizes="192x192" href="favicon-192.png">
+                <link rel="icon" sizes="192x192" href="/img/favicon-192.png">
 
 
 
@@ -108,14 +34,12 @@
         <br> <br>    
 
         <input type="text" id="url" name="url" placeholder="Inserisci URL del prodotto..." required>
-        <input type="submit" value="ricerca SKU">
+        <input type="submit" value="cerca stringhe SKU da URL">
         <br> <br>
 
         <input type="text" id="prodInput" placeholder="Inserisci parole chiave...">
         <input type="button" value="Cerca sul sito Olalla.it" onclick="searchPROD()">
         <br> <br>
-        
-        <!-- Bottone per resettare -->
         <input type="button" value="Reset" onclick="resetForms()">
     </div>
     </form>
