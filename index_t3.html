@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="theme-dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoD</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="/css/bulma.css">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon-152-precomposed.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon-144-precomposed.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon-120-precomposed.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon-114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon-180-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon-72-precomposed.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon-57.png">
+    <link rel="icon" sizes="32x32" href="/img/favicon-32.png" >
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="/img/favicon-144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/img/manifest.json">
+    <link rel="icon" sizes="192x192" href="/img/favicon-192.png">
+    <script src="core.js"></script>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container.is-mobile">
+
+
+      <div class="column is-three-fifths is-offset-one-fifth">
+          <h1 class="title">CoD </h1><p class="subtitle is-5">issue 01.24 &emsp;<strong>|</strong>&emsp; cerca <strong>ordini</strong> e <strong>sku</strong></p>
+
+
+
+
+
+         <form class="box">
+          <div class="field">
+
+            <div class="control">
+              <input class="input is-warning" id="dato" placeholder="  numero ordine   /   SKU da URL   /   su olallà.it" />
+            </div>
+          </div>
+        
+
+        
+          <div class="level-item has-text-centered">  <button class="button is-warning"><strong>CERCA</strong></button></div>   &emsp;  <div class="level-item has-text-centered">  <button class="button is-warning is-outlined" onclick="resetForms()">reset</button>  </div>
+        </form>
+
+
+
+
+         
+</div>
+
+<script>
+  document.getElementById('urlForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Previene il refresh della pagina
+      const url = document.getElementById('url').value;
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = ''; // Pulisce i risultati precedenti
+
+      try {
+          // Esegui la richiesta per ottenere il codice sorgente della pagina
+          const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`);
+          const text = await response.text();
+
+          // RegExp per trovare "SKU" e i 40 caratteri successivi
+          const regex = /"sku".{0,40}/g;
+          let match;
+          const results = [];
+
+          // Esegui la ricerca nel testo HTML
+          while ((match = regex.exec(text)) !== null) {
+              results.push(match[0]);
+          }
+
+          // Visualizza i risultati
+          if (results.length > 0) {
+              resultsDiv.innerHTML = "<h2>stringhe trovate:</h2>";
+              results.forEach(result => {
+                  const p = document.createElement('p');
+                  p.textContent = result;
+                  resultsDiv.appendChild(p);
+              });
+          } else {
+              resultsDiv.textContent = 'Nessuna stringa SKU trovata.';
+          }
+      } catch (error) {
+          resultsDiv.textContent = 'Errore durante il recupero del codice HTML: ' + error;
+      }
+  });
+</script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+  </section><footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>.
+        The source code is licensed
+        <a href="https://opensource.org/license/mit">MIT</a>. The
+        website content is licensed
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//"
+          >CC BY NC SA 4.0</a
+        >.
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>
+
+
+
+
