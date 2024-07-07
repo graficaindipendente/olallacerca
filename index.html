@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoD issue 24</title>
+    <title>BETA CoD</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="BKstyle.css">
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -28,23 +28,47 @@
 <body>
 
 
+
+
+
+
     <form id="urlForm">
-    <div class="search-container">
+    <div class="search-container"><strong><h3>CoD issue 01.24 BETA</h3></strong>
         <input type="text" id="codInput" placeholder="Inserisci CODICE...">
         <input type="button" value="Vai all'Ordine" onclick="searchCOD()">
         <br> <br>    
 
         <input type="text" id="url" name="url" placeholder="Inserisci URL del prodotto..." required>
-        <input type="submit" value="cerca stringhe SKU da URL">
-        <br> <br>
+        <input type="submit" value="cerca stringhe SKU da URL"> <div id="results"></div>
+        <br> <br>   
 
         <input type="text" id="prodInput" placeholder="Inserisci parole chiave...">
         <input type="button" value="Cerca sul sito Olalla.it" onclick="searchPROD()">
         <br> <br>
+
+
+
+
+
+
+        
         <input type="button" value="Reset" onclick="resetForms()">
     </div>
     </form>
-    <div id="results"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script>
         document.getElementById('urlForm').addEventListener('submit', async function(event) {
@@ -70,7 +94,7 @@
 
                 // Visualizza i risultati
                 if (results.length > 0) {
-                    resultsDiv.innerHTML = "<h2>stringhe trovate:</h2>";
+                    resultsDiv.innerHTML = "<b><p>stringhe trovate:</p></b> <br>";
                     results.forEach(result => {
                         const p = document.createElement('p');
                         p.textContent = result;
@@ -124,5 +148,11 @@
             document.getElementById('results').innerHTML = ''; // Pulisce i risultati
         }
     </script>
+
+
+
+
+
+
 </body>
 </html>
