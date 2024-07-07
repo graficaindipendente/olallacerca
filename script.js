@@ -1,5 +1,5 @@
 document.getElementById("submitButton").addEventListener("click", function() {
-    const input = document.getElementById("dato").value;
+    const input = document.getElementById("dato").value.trim();
 
     if (/^\d{6}$/.test(input)) {
         searchCOD(input);
@@ -11,19 +11,24 @@ document.getElementById("submitButton").addEventListener("click", function() {
 });
 
 function searchCOD(code) {
-    console.log("Esecuzione di searchCOD con codice:", code);
-    // Aggiungi qui il codice per searchCOD
+    const baseURL = "https://www.olalla.it/wp-admin/post.php?post=000000&action=edit&classic-editor";
+    const url = baseURL.replace("000000", code);
+    window.open(url, '_blank');
+    console.log("Aperto URL:", url);
 }
 
 function searchSKU(url) {
-    console.log("Esecuzione di searchSKU con URL:", url);
-    // Aggiungi qui il codice per searchSKU
+    window.open(url, '_blank');
+    console.log("Aperto URL SKU:", url);
 }
 
 function searchPROD(data) {
-    console.log("Esecuzione di searchPROD con dato:", data);
-    // Aggiungi qui il codice per searchPROD
+    const baseURL = "https://www.olalla.it/?s=000000&post_type=product";
+    const url = baseURL.replace("000000", code);
+    window.open(url, '_blank');
+    console.log("Aperto URL:", url);
 }
+
 
 function isValidURL(string) {
     try {
